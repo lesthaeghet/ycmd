@@ -447,7 +447,10 @@ def BuildRacerd():
   # racerd 2.5x slower and we don't care about the speed of the produced racerd.
   if not OnTravisOrAppVeyor():
     args.append( '--release' )
-  CheckCall( args )
+  #CheckCall( args )  # Disabled because cargo v 0.9.0-nightly (8fc3ef8
+                      # 2016-02-29) or later is required due to serde
+                      # requirement - could upgrade to later version of cargo
+                      # but for now this is fundamentally broken
 
 
 def SetUpTern():
